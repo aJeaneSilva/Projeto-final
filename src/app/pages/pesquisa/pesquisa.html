@@ -1,0 +1,102 @@
+<app-header />
+
+<main class="container-pesquisa">
+  <section class="card-busca">
+    <h2>Monte seu Plano de Embarque</h2>
+    <p>Escolha o destino e seu objetivo para descobrir o passo a passo burocrático e prático.</p>
+
+    <div class="formulario-grid">
+     
+      <div class="campo-grupo">
+        <label for="select-pais">Para qual país você está indo?</label>
+        <select id="select-pais" class="input-select" [(ngModel)]="paisSelecionado">
+          <option value="" disabled selected>Selecione o destino...</option>
+          <option value="estados-unidos">Estados Unidos</option>
+          <option value="canada">Canadá</option>
+          <option value="suica">Suíça</option>
+          <option value="irlanda">Irlanda</option>
+          <option value="alemanha">Alemanha</option>
+          <option value="inglaterra">Inglaterra</option>
+          <option value="australia">Austrália</option>
+          <option value="japao">Japão</option>
+          <option value="espanha">Espanha</option>
+          <option value="portugal">Portugal</option>
+        </select>
+      </div>
+
+      <div class="campo-grupo">
+        <label>Qual o seu foco principal?</label>
+        <div class="botoes-radio">
+          <label class="radio-label">
+            <input type="radio" name="foco" value="estudos" [(ngModel)]="focoSelecionado">
+            <span>Estudos</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="foco" value="trabalho" [(ngModel)]="focoSelecionado">
+            <span>Trabalho</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="foco" value="moradia" [(ngModel)]="focoSelecionado">
+            <span>Moradia</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn-consultar" (click)="buscarInformacoes()">
+      Consultar Exigências →
+    </button>
+  </section>
+
+  <section class="painel-resultados" *ngIf="resultadoGuia()">
+    
+    <div class="resultado-cabecalho">
+      <img [src]="resultadoGuia()?.imagemBandeira" [alt]="resultadoGuia()?.nome" class="bandeira-pais">
+      <h2>Guia de Preparação: {{ resultadoGuia()?.nome }}</h2>
+    </div>
+
+    <div class="grid-cards-guia">
+      <div class="card-info">
+        <div class="badge-categoria"><img src="/img/policial.png" alt="Policial"> Requisitos do Visto</div>
+        <h3>Como funciona o processo:</h3>
+        
+
+        <p *ngIf="focoSelecionado() === 'estudos'">{{ resultadoGuia()?.vistoEstudos }}</p>
+        <p *ngIf="focoSelecionado() === 'trabalho'">{{ resultadoGuia()?.vistoTrabalho }}</p>
+        <p *ngIf="focoSelecionado() === 'moradia'">{{ resultadoGuia()?.vistoMoradia }}</p>
+
+        <div class="alerta-juridico">
+          <p>Evite dores de cabeça ou ter o visto negado por erros na documentação.</p>
+          <a href="/advogados" class="link-advogado">Falar com especialista jurídico →</a>
+        </div>
+      </div>
+
+      <div class="card-info">
+        <div class="badge-categoria"><img src="/img/livros.png" alt="Livros"> Estudo do Idioma</div>
+        <h3>Sites e Ferramentas Úteis:</h3>
+        <p>Comece a se preparar linguisticamente antes de embarcar com estas plataformas:</p>
+        <ul class="lista-links">
+          <li *ngFor="let link of resultadoGuia()?.linksIdioma">
+            <a [href]="link.url" target="_blank">{{ link.nome }} ↗</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="card-info">
+        <div class="badge-categoria"><img src="/img/calendario.png" alt="Calendário"> Checklist de Embarque</div>
+        <h3>Tarefas Importantes:</h3>
+        <ul class="lista-checklist">
+          <li *ngFor="let item of resultadoGuia()?.checklist">
+            <label class="check-item">
+              <input type="checkbox">
+              <span>{{ item }}</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer />

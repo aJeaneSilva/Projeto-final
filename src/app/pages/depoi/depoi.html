@@ -1,0 +1,43 @@
+<app-header />
+
+<main class="secao-depoimentos">
+  <div class="container">
+    <div class="cabecalho-secao">
+      <h1 class="titulo-vintage">Depoimentos</h1>
+      <div class="linha-divisoria"></div>
+    </div>
+
+
+    <div class="carrossel">
+      <div class="carrossel-slider" [style.transform]="'translateX(' + (-indiceAtual * 100) + '%)'">
+          @for (foto of fotosViajantes; track $index) {
+            <img class="img-carros" alt="Fotos dos viajantes" [src]="foto"/>
+          }
+      </div>
+      <button class="btn-carrossel prev" (click)="fotoAnterior(); resetarTimer()">&#10094;</button>
+      <button class="btn-carrossel next" (click)="proximaFoto(); resetarTimer()">&#10095;</button>
+    </div>
+
+    <div class="grade-depoimentos">
+      <div class="card-menor">
+        <div class="estrelas">★★★★★</div>
+        <p class="texto-breve">"A curadoria das rotas históricas é impecável. Senti que estava vivendo a história, não apenas lendo sobre ela."</p>
+        <p class="autor-breve">— Maria Oliveira</p>
+      </div>
+      <div class="card-menor destaque">
+        <h4 class="titulo-destaque">Destaque do Mês</h4>
+        <p class="texto-grande">"Autenticidade em cada quilômetro."</p>
+        <a href="#" class="link-historia">Ler história completa</a>
+      </div>
+      <div class="card-menor">
+        <div class="estrelas">★★★★☆</div>
+        <p class="texto-breve">"O suporte durante a viagem foi excepcional. Me senti seguro e guiado durante todo o percurso pela Toscana."</p>
+        <p class="autor-breve">— João Mendes</p>
+      </div>
+      
+    </div>
+  </div>
+</main>
+
+<app-footer />
+

@@ -1,0 +1,86 @@
+<app-header />
+<div class="container-suporte">
+  
+  <div *ngIf="!enviado" class="card-formulario">
+    <h2>Contato com o Suporte Jurídico</h2>
+    <p class="subtitulo">Preencha os dados abaixo. Nossa equipe analisará seu caso de acordo com o destino e objetivo da sua viagem.</p>
+
+    <form [formGroup]="formSuporte" (ngSubmit)="enviarFormulario()">
+      
+      <div class="campo-grupo">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" formControlName="nome" placeholder="Digite seu nome">
+        <div *ngIf="formSuporte.get('nome')?.touched && formSuporte.get('nome')?.invalid" class="erro-msg">
+          Por favor, insira seu nome completo.
+        </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="email">E-mail de Contato</label>
+        <input id="email" type="email" formControlName="email" placeholder="seu.email@exemplo.com">
+        <div *ngIf="formSuporte.get('email')?.touched && formSuporte.get('email')?.invalid" class="erro-msg">
+          Insira um e-mail válido para contato.
+        </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="motivoViagem">Qual o principal objetivo da viagem?</label>
+        <select id="motivoViagem" formControlName="motivoViagem">
+          <option value="" disabled selected>Selecione uma opção...</option>
+          <option value="trabalho">Trabalho / Negócios / Mudança Corporativa</option>
+          <option value="intercambio">Intercâmbio / Cursos / Estudos</option>
+          <option value="moradia">Moradia / Viagem</option>
+          <option value="outro">Outro motivo</option>
+        </select>
+        <div *ngIf="formSuporte.get('motivoViagem')?.touched && formSuporte.get('motivoViagem')?.
+        invalid" class="erro-msg">
+          Selecione uma das opções de viagem.
+        </div>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="descricaoSituacao">Explique detalhadamente a sua situação</label>
+        <textarea 
+          id="descricaoSituacao" 
+          formControlName="descricaoSituacao" 
+          rows="6" 
+          placeholder="Conte-nos sobre vistos, contratos ou qualquer dúvida jurídica que possua para o país de destino...">
+        </textarea>
+        <div *ngIf="formSuporte.get('descricaoSituacao')?.touched && formSuporte.get('descricaoSituacao')?.
+        invalid" class="erro-msg">
+          A descrição deve conter pelo menos 20 caracteres para análise adequada.
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="formSuporte.invalid" class="btn-enviar">
+        Solicitar Atendimento Jurídico
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="enviado" class="card-sucesso">
+    <div class="icone-sucesso">
+        <img src="img/maos.png" alt="Mãos">
+    </div>
+    <h2>Solicitação Enviada com Sucesso!</h2>
+    <p class="texto-sucesso">
+      Identificamos o perfil da sua viagem e encaminhamos o seu caso para o departamento responsável.
+    </p>
+    
+    <div class="box-advogado">
+      <p><strong>Advogado(a) Designado(a):</strong></p>
+      <h3>{{ advogadoResponsavel }}</h3>
+    </div>
+
+    <p class="aviso-final">
+      O profissional acima entrará em contato diretamente pelo e-mail que você informou em até 24
+      horas úteis. Fique atento à sua caixa de entrada!
+    </p>
+    <div class="botoes-ir">
+    <button (click)="novoContato()" class="btn-voltar1">Nova Solicitação</button>
+    <a href="/home" class="btn-voltar2">Voltar</a>
+    </div>
+
+  </div>
+</div>
+<app-footer />

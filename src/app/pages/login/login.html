@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="login-card">
+    
+    <div class="logo-container">
+      <img src="img/logob.png" alt="Logo NextStop Is" class="img">
+      <h2 class="company-name">Cadastre-se na NextStop Is</h2>
+    </div>
+
+    <form class="login-form" (ngSubmit)="onSubmit($event)">
+      
+      <div class="foto-cadastro-container">
+        <div class="avatar-espelho">
+          <img src="/img/usuario.png" alt="Prévia da foto do usuário">
+        </div>
+        <span class="label-foto">Adicione foto</span>
+      </div>
+
+      <div class="input-group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill input-icon" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+        <input type="text" name="nome" [(ngModel)]="nome" placeholder="Nome" required>
+      </div>
+
+      <div class="input-group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill input-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3"/>
+        </svg>
+        <input type="password" name="senha" [(ngModel)]="senha" placeholder="Criar senha" required>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">Li e concordo com os
+          <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">Termos e Condições.</a>
+        </label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="marketing">
+        <label for="marketing">Sim, aceito receber anúncios sobre oportunidades no exterior.</label>
+      </div>
+
+      <button type="submit" class="bot-login">Cadastrar e Entrar</button>
+    </form>
+  </div>
+</div>

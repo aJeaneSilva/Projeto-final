@@ -1,0 +1,50 @@
+<header class="cabecalho">
+  <div class="logo-nome">
+    <img src="/img/logo.png" alt="Logo NextStop Is">
+    <span>NextStop Is</span>
+  </div>
+
+  <nav class="links">
+    <a href="/home">Início</a>
+    <a href="/home#servicos">Serviços</a>
+    <a href="/pesquisa">Plano de embarque</a>
+    <a href="/depoi">Depoimentos</a>
+    <a href="/parceiros">Encontrar parceiros de viagem</a>
+    <a href="/mathes">Pessoas</a>
+    <a href="/advogados">Advogados</a>
+  </nav>
+
+  <div class="notificacao">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+    </svg>
+    
+    @if (estaLogado()) {
+      <button class="botao-log" (click)="logout()">Sair</button>
+    } 
+    @else {
+      <button class="botao-log" routerLink="/login">Cadastre-se</button>
+    }
+
+    <button class="menu-hamburguer" (click)="dispararClique()" [class.aberto]="menuAtivo()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+</div>
+
+  <div class="menu-lateral" [class.visivel]="menuAtivo()">
+    <div class="x">
+      <button class="btn-fechar-menu" (click)="dispararClique()">X</button>
+    </div>
+    <nav class="links-mobile">
+      <a href="/home" (click)="dispararClique()">Início</a>
+      <a href="/home#servicos" (click)="dispararClique()">Serviços</a>
+      <a href="/pesquisa" (click)="dispararClique()">Plano de embarque</a>
+      <a href="/depoi" (click)="dispararClique()">Depoimentos</a>
+      <a href="/parceiros" (click)="dispararClique()">Encontrar parceiros de viagem</a>
+      <a href="/mathes" (click)="dispararClique()">Pessoas</a>
+      <a href="/advogados" (click)="dispararClique()">Advogados</a>
+    </nav>
+  </div>
+</header>

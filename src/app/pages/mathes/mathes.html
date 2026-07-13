@@ -1,0 +1,50 @@
+<app-header />
+
+<div class="container-catalogo">
+  <div class="header-catalogo">
+    <h2>Comunidade de Viajantes</h2>
+    <p>Conheça todas as pessoas que estão planejando sua próxima aventura pelo mundo. Conecte-se e planejem juntos!</p>
+  </div>
+
+  <div class="container-filtro-unico">
+    <label for="filtro-pais">Filtrar por destino:</label>
+    <select 
+      id="filtro-pais" 
+      class="select-filtro" 
+      (change)="paisSelecionado.set($any($event.target).value)">
+      <option value=""> Mostrar todos os destinos</option>
+      <option *ngFor="let destino of paisesUnicos()" [value]="destino">
+        {{ destino }}
+      </option>
+    </select>
+  </div>
+
+  <div class="grid-geral">
+    <div *ngFor="let p of viajantesFiltrados()" class="card-viajante">
+      
+      <div class="card-topo">
+        <img [src]="p.fotoUrl" alt="Foto de {{ p.nome }}" class="foto-catalogo">
+        <div class="nome-idade">
+          <h3>{{ p.nome }}</h3>
+          <span>{{ p.idade }} anos</span>
+        </div>
+      </div>
+
+      <div class="card-corpo">
+        <div class="tags-container">
+          <span class="tag-destino"><img src="img/alfinete.png" alt="Localização"> {{ p.destino }}</span>
+          <span class="tag-objetivo">{{ p.objetivo | titlecase }}</span>
+          <span class="tag-orcamento"><img src="img/dinheiro.png" alt="Dinheiro"> {{ p.orcamento | titlecase }}</span>
+        </div>
+        <p class="bio-texto">"{{ p.bio }}"</p>
+      </div>
+
+      <div class="card-rodape">
+        <button class="btn-perfil">Ver Perfil Completo</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer />
