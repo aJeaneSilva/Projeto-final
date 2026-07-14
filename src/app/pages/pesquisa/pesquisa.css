@@ -1,10 +1,11 @@
 .container-pesquisa {
-  padding: 60px 20px;
+  padding: 40px 20px; 
+  padding-top: 100px;
   max-width: 1200px;
   margin: 0 auto;
   min-height: 70vh;
   font-family: sans-serif;
-  padding-top: 100px;
+  box-sizing: border-box;
 }
 
 .card-busca {
@@ -30,7 +31,7 @@
 
 .formulario-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 30px;
   margin-bottom: 30px;
 }
@@ -55,10 +56,13 @@
   font-size: 1rem;
   background-color: #fcf8f9;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .botoes-radio {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   height: 100%;
   align-items: center;
@@ -89,6 +93,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
+  display: inline-block;
 }
 
 .btn-consultar:hover {
@@ -116,11 +121,12 @@
 .resultado-cabecalho h2 {
   color: #a55307;
   font-size: 2.2rem;
+  margin: 0;
 }
 
 .grid-cards-guia {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
@@ -145,10 +151,12 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
-.badge-categoria img{
+
+.badge-categoria img {
   width: 20px;
+  height: auto;
 }
 
 .card-info h3 {
@@ -167,7 +175,7 @@
   background-color: #fcf8f9;
   border-left: 4px solid #ca701b;
   padding: 15px;
-  margin-top: auto; /* Força o alerta a ficar fixo no rodapé do card */
+  margin-top: 20px;
   border-radius: 0 12px 12px 0;
 }
 
@@ -229,4 +237,62 @@
   width: 18px;
   height: 18px;
   margin-top: 2px;
+}
+
+
+@media (max-width: 768px) {
+  .container-pesquisa {
+    padding: 20px 16px;
+    padding-top: 90px;
+  }
+
+  .card-busca {
+    padding: 24px;
+    margin-bottom: 30px;
+  }
+
+  .card-busca h2 {
+    font-size: 1.6rem;
+  }
+
+  .card-busca p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-consultar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .resultado-cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .resultado-cabecalho h2 {
+    font-size: 1.6rem;
+  }
+
+  .card-info {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .botoes-radio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .resultado-cabecalho {
+    align-items: center;
+    text-align: center;
+  }
+
+  .resultado-cabecalho h2 {
+    font-size: 1.4rem;
+  }
 }

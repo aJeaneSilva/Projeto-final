@@ -1,16 +1,18 @@
 .secao-depoimentos {
-  padding-top: 2%;
   padding-bottom: 5%;
   background-color: #fcf8f9;
   position: relative;
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #1b1b1c;
-  padding-top: 95px;
+  padding-top: 100px;
+  box-sizing: border-box;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .cabecalho-secao {
@@ -36,16 +38,14 @@
   margin: 0 auto;
   opacity: 0.5;
 }
-
-
-
 .carrossel {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  height: 580px;
+  height: 500px; 
   box-shadow: 0 20px 40px rgba(0,0,0,0.15);
   margin-bottom: 40px;
+  width: 100%;
 }
 
 .carrossel-slider {
@@ -67,7 +67,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(253, 248, 242, 0.75);
+  background-color: rgba(253, 248, 242, 0.85);
   color: #815124;
   border: 1px solid #D4C5B0;
   border-radius: 50%;
@@ -88,14 +88,16 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
+.prev { 
+  left: 20px; 
+}
+.next { 
+  right: 20px; 
+}
 
-
-/*depoimentos no card menor*/
 .grade-depoimentos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
@@ -105,6 +107,9 @@
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .estrelas {
@@ -130,9 +135,6 @@
   background: #a55307;
   color: #ffffff;
   border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .titulo-destaque {
@@ -140,12 +142,14 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 15px 0;
+  color: #f8e3cf;
 }
 
 .texto-grande {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 .link-historia {
@@ -155,4 +159,75 @@
   padding-bottom: 2px;
   align-self: flex-start;
   font-size: 0.9rem;
+  transition: opacity 0.2s ease;
+}
+
+.link-historia:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .secao-depoimentos {
+    padding-top: 90px;
+  }
+
+  .titulo-vintage {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .carrossel {
+    height: 350px;
+  }
+
+  .btn-carrossel {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .prev { 
+    left: 10px; 
+  } 
+  .next { 
+    right: 10px; 
+  }
+
+  .card-menor {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-vintage {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .carrossel {
+    height: 240px; 
+    border-radius: 16px; 
+    margin-bottom: 25px;
+  }
+
+  .btn-carrossel {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .prev { 
+    left: 8px; 
+  }
+  .next { 
+    right: 8px; 
+  }
+
+  .grade-depoimentos {
+    gap: 20px;
+  }
+
+  .texto-grande {
+    font-size: 1.25rem;
+  }
 }
