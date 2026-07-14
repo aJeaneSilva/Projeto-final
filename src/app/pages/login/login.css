@@ -3,17 +3,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+  width: 100%; 
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 0;
-}
-
-.img {
-    width: 65px;
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
 .login-card {
@@ -25,77 +22,30 @@
   width: 90%; 
   max-width: 400px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.2); 
   color: #ffffff;
   box-sizing: border-box;
 }
 
 .logo-container {
   display: flex;
-  justify-content: baseline;
   align-items: center;
-  margin-bottom: 20px;
-  gap: 5px;
+  margin-bottom: 40px;
+  gap: 12px;
 }
 
-.login-container h2{
-    color: #faebd7;
-    font-size: 21px;
-}
-
-.logo-container .icon-globe {
-  font-size: 40px;
-  margin-bottom: 10px;
+.img {
+  width: 65px;
+  height: auto;
+  flex-shrink: 0;
 }
 
 .company-name {
-  font-size: 24px;
+  color: #faebd7;
+  font-size: clamp(18px, 4.5vw, 22px);
   margin: 0;
-}
-
-.foto-cadastro-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.avatar-espelho {
-  width: 75px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px dashed #a54c19;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.avatar-espelho img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.label-foto {
-  font-size: 13px;
-  color: #ccc;
-  margin-top: 8px;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.foto-cadastro-container:hover .avatar-espelho {
-  transform: scale(1.03);
-  border-color: #ffcc99;
-}
-
-.foto-cadastro-container:hover .label-foto {
-  color: #ffcc99;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .login-form {
@@ -108,22 +58,29 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .input-group input {
   width: 100%;
-  padding: 12px 12px 12px 40px; 
+  padding: 12px 12px 12px 45px;
   background: #000000; 
   border: 1px solid #333;
   border-radius: 50px;
   color: white;
   font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #a54c19;
 }
 
 .input-group .input-icon {
   position: absolute;
-  left: 15px;
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   color: #faebd7; 
@@ -139,55 +96,64 @@
   margin-bottom: 15px;
   font-size: 13px;
   color: #ccc;
+  width: 100%;
 }
 
 .checkbox-group input {
-  margin-top: 2px;
+  margin-top: 3px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+  line-height: 1.4;
 }
 
 .checkbox-group a {
   color: #7780fd;
+  text-decoration: none;
 }
 
 .checkbox-group a:hover {
   text-decoration: underline;
 }
 
-
 .bot-login {
   background-color: #a54c19;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 14px;
   border-radius: 50px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+  width: 100%;
 }
 
-.btn-login:hover {
-  background-color: #402a10;
+.bot-login:hover {
+  background-color: #c46c39;
 }
 
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px 0;
+  }
 
-@media screen and (max-width: 600px) {
   .login-card {
-    padding: 30px;
+    padding: 25px 20px;
     border-radius: 20px;
   }
 
   .logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    gap: 8px;
   }
 
-  .logo-container .icon-globe {
-    font-size: 30px;
-  }
-
-  .company-name {
-    font-size: 20px;
+  .img {
+    width: 50px;
   }
 
   .input-group {
@@ -196,21 +162,21 @@
 
   .input-group input {
     font-size: 15px;
-    padding: 10px 10px 10px 35px;
+    padding: 10px 10px 10px 40px;
   }
 
   .checkbox-group {
     font-size: 12px;
   }
-}
 
-@media screen and (max-height: 500px) {
-  .login-container {
-    height: auto;
-    padding: 20px 0;
+  .bot-login {
+    padding: 12px;
+    font-size: 15px;
   }
-
-  .login-card {
-    margin: 20px auto;
+}
+@media (max-height: 500px) {
+  .login-container {
+    align-items: flex-start;
+    padding: 30px 0;
   }
 }

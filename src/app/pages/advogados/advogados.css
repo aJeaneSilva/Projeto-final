@@ -1,33 +1,43 @@
 .container-suporte {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 0 20px;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  padding-top: 55px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  width: 100%;
 }
-
-.card-formulario, .card-sucesso {
+.card-formulario, 
+.card-sucesso {
+  margin-top: 130px; 
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 35px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 h2 {
   color: #a55307;
   margin-top: 0;
-  font-size: 24px;
+  font-size: clamp(20px, 4.5vw, 24px);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .subtitulo {
   color: #8a4f17;
-  font-size: 14px;
+  font-size: clamp(13px, 3vw, 14px);
   line-height: 1.5;
   margin-bottom: 25px;
+  overflow-wrap: anywhere;
 }
 
 .campo-grupo {
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 label {
@@ -36,6 +46,7 @@ label {
   margin-bottom: 8px;
   color: #bb6f27;
   font-size: 14px;
+  overflow-wrap: anywhere;
 }
 
 input, select, textarea {
@@ -74,6 +85,7 @@ input:focus, select:focus, textarea:focus {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
+  box-sizing: border-box;
 }
 
 .btn-enviar:hover:not(:disabled) {
@@ -85,22 +97,55 @@ input:focus, select:focus, textarea:focus {
   cursor: not-allowed;
 }
 
+.botoes-ir {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    width: 100%;
+    flex-wrap: wrap; 
+}
+
+.btn-voltar1, .btn-voltar2 {
+  background-color: #d65c15;
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #d17b2b;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  text-align: center;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.btn-voltar2 {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-voltar1:hover, .btn-voltar2:hover {
+  background-color: #e47d42;
+}
+
 .card-sucesso {
   text-align: center;
   border-top: 6px solid #a55307;
 }
 
 .icone-sucesso {
-  font-size: 48px;
   margin-bottom: 15px;
 }
-.icone-sucesso img{
-  width: 100px;
+
+.icone-sucesso img {
+  width: clamp(70px, 15vw, 100px);
+  height: auto;
 }
 
 .texto-sucesso {
   color: #8a4f17;
   line-height: 1.6;
+  font-size: clamp(13px, 3vw, 15px);
 }
 
 .box-advogado {
@@ -109,6 +154,7 @@ input:focus, select:focus, textarea:focus {
   border-radius: 8px;
   padding: 15px;
   margin: 25px 0;
+  text-align: center;
 }
 
 .box-advogado p {
@@ -122,7 +168,7 @@ input:focus, select:focus, textarea:focus {
 .box-advogado h3 {
   margin: 5px 0 0 0;
   color: #1b5e20;
-  font-size: 18px;
+  font-size: clamp(16px, 3.5vw, 18px);
 }
 
 .aviso-final {
@@ -131,59 +177,22 @@ input:focus, select:focus, textarea:focus {
   line-height: 1.5;
 }
 
-.btn-voltar1 {
-  background-color: #d65c15;
-  color: #fff;
-  padding: 10px 20px;
-  border: 1px solid #d17b2b;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 15px;
-}
-.btn-voltar1:hover {
-  background-color: #e47d42;
-}
-
-.btn-voltar2 {
-  background-color: #d65c15;
-  text-decoration: none;
-  color: #fff;
-  padding: 7px 20px;
-  border: 1px solid #d17b2b;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  margin-top: 15px;
-}
-
-.btn-voltar2:hover {
-  background-color: #e47d42;
-}
-.botoes-ir {
-    display: flex;
-    justify-content: center;
-    gap: 5%;
-}
 
 
-@media (max-width: 480px) {
-  .container-suporte {
-    margin: 15px auto;
-    padding: 0 10px; 
-  }
+@media (max-width: 650px) {
 
-  .card-formulario, .card-sucesso {
+  .card-formulario, 
+  .card-sucesso {
+    margin-top: 190px !important;
     padding: 20px; 
     border-radius: 8px;
   }
 
-  h2 {
-    font-size: 20px; 
+  .container-suporte {
+    padding: 0 12px; 
   }
 
   .subtitulo {
-    font-size: 13px;
     margin-bottom: 20px;
   }
 
@@ -197,7 +206,19 @@ input:focus, select:focus, textarea:focus {
     font-size: 15px;
   }
   
-  .box-advogado h3 {
-    font-size: 16px;  
+  .botoes-ir {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .btn-voltar1, .btn-voltar2 {
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .card-formulario, 
+  .card-sucesso {
+    margin-top: 100px !important;
+    padding: 15px;
   }
 }
