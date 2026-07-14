@@ -42,7 +42,7 @@
 
 .company-name {
   color: #faebd7;
-  font-size: clamp(18px, 4.5vw, 22px);
+  font-size: clamp(18px, 4.5vw, 20px);
   margin: 0;
   font-weight: 700;
   line-height: 1.2;

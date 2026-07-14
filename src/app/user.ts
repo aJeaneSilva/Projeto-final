@@ -75,7 +75,7 @@ export const PARCEIROS_DISPONIVEIS: Parceiro[] = [
     objetivo: 'moradia', 
     orcamento: 'alto', 
     bio: 'Me mudando para NY. Quero companhia para sair, turistar e fazer amizades.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150' 
+    fotoUrl: '/img/emo.jpeg' 
   },
   
   { id: 7, 
@@ -97,7 +97,7 @@ export const PARCEIROS_DISPONIVEIS: Parceiro[] = [
     objetivo: 'trabalho', 
     orcamento: 'alto', 
     bio: 'Engenheiro mudando para Munique. Procuro alguém para praticar alemão.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150' 
+    fotoUrl: '/img/titi.jpeg' 
   },
   
   { id: 9, 
@@ -108,7 +108,7 @@ export const PARCEIROS_DISPONIVEIS: Parceiro[] = [
     objetivo: 'intercambio', 
     orcamento: 'moderado', 
     bio: 'Realizando o sonho de estudar em Tóquio! Quero companhia para explorar a cultura local.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150' 
+    fotoUrl: '/img/nate.jpeg' 
   },
   
   { id: 10, 
@@ -119,17 +119,17 @@ export const PARCEIROS_DISPONIVEIS: Parceiro[] = [
     objetivo: 'trabalho', 
     orcamento: 'alto', 
     bio: 'Indo trabalhar com finanças em Zurique. Procuro parceiros para esquiar nos fins de semana.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150' 
+    fotoUrl: '/img/gret.webp' 
   },
   
   { id: 11, 
-    nome: 'Arthur Reis', 
+    nome: 'Harry Kane', 
     idade: 24, genero: 'homem', 
     destino: 'Inglaterra', 
     objetivo: 'intercambio', 
     orcamento: 'moderado', 
     bio: 'Indo fazer mestrado em Londres. Curto futebol e quero aproveitar para viajar.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150' 
+    fotoUrl: '/img/coach.jpeg' 
   },
   
   { id: 12, 
@@ -140,17 +140,17 @@ export const PARCEIROS_DISPONIVEIS: Parceiro[] = [
     objetivo: 'moradia', 
     orcamento: 'economico', 
     bio: 'Indo morar em Sydney para surfar e trabalhar. Procuro uma vibe bem tranquila.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=150' 
+    fotoUrl: '/img/gato.jpeg'
   },
   
   { id: 13, 
-    nome: 'Isabela Alencar', 
+    nome: 'Sabrina Carpenter', 
     idade: 25, 
     genero: 'mulher', 
     destino: 'Espanha', 
     objetivo: 'intercambio', 
     orcamento: 'economico', 
     bio: 'Estudando em Madrid! Quero companhia para viajar pela Europa gastando pouco.', 
-    fotoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150' 
+    fotoUrl: '/img/ari.webp' 
   }
 ];
