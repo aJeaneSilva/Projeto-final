@@ -9,6 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     router.navigate(['/login']);
+    alert('Faça cadastro para navegar pela NextStop Is!')
     return false;
   }
 };

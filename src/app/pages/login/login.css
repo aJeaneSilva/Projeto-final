@@ -136,6 +136,24 @@
 .bot-login:hover {
   background-color: #c46c39;
 }
+.bot-voltar {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #a54ca5;
+  border-radius: 25px;
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.bot-voltar:hover {
+  background-color: #c46c39;
+}
+
 
 @media (max-width: 480px) {
   .login-container {

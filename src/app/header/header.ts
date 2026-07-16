@@ -20,6 +20,7 @@ export class Header {
   logout(): void {
     localStorage.removeItem('usuarioLogado');
     this.router.navigate(['/login']);
+    alert('Deseja realmente sair?')
   }
 
   dispararClique(): void {
