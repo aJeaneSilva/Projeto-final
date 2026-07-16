@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { Router, RouterLink } from "@angular/router";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -11,17 +11,23 @@ import { Router, RouterLink } from "@angular/router";
 export class Header {
   menuAberto = signal(false);
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   estaLogado(): boolean {
     return localStorage.getItem('usuarioLogado') === 'true';
   }
 
   logout(): void {
+  if (confirm('Deseja realmente sair?')) {
     localStorage.removeItem('usuarioLogado');
-    this.router.navigate(['/login']);
-    alert('Deseja realmente sair?')
+    alert('Você saiu da conta.');
+    window.location.reload();
   }
+}
+
+  avisarSemNotificacao(): void {
+  alert('Você não tem novas notificações no momento.');
+}
 
   dispararClique(): void {
     this.menuAberto.update(valor => !valor);

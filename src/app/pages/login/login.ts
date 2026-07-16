@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class Login {
   nome = '';
+  email = '';
   senha = '';
 
   constructor(private router: Router) {}
@@ -18,7 +19,7 @@ export class Login {
   onSubmit(event: Event) {
     event.preventDefault();
     
-    if (!this.nome || !this.senha) {
+    if (!this.nome || !this.email || !this.senha) {
       alert('Por favor, preencha todos os campos obrigatórios!');
       return;
     }

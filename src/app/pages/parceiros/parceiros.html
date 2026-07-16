@@ -59,13 +59,16 @@
         <div *ngIf="formMatch.get('orcamento')?.touched && formMatch.get('orcamento')?.invalid" class="erro-msg">
           Selecione o seu estilo de orçamento.
         </div>
-        
-        <label for="descricaoSituacao">Conte um pouco sobre você:</label>
+      </div>
+
+      <div class="campo-grupo">
+        <label for="descricaoPessoal">Conte um pouco sobre você:</label>
         <textarea 
+          id="descricaoPessoal"
+          formControlName="descricaoPessoal" 
           rows="6" 
           placeholder="Digite aqui...">
         </textarea>
-
       </div>
 
       <button type="submit" [disabled]="formMatch.invalid" class="btn-buscar">Buscar Combinações</button>

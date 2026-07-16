@@ -83,7 +83,7 @@
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
-  color: #faebd7; 
+  color: #faebd7;
   pointer-events: none;
   z-index: 2;
 }
@@ -93,7 +93,7 @@
   align-items: flex-start;
   gap: 10px;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   font-size: 13px;
   color: #ccc;
   width: 100%;
@@ -117,6 +117,10 @@
 
 .checkbox-group a:hover {
   text-decoration: underline;
+}
+form p{
+  margin: 0 10px 3px 10px;
+  
 }
 
 .bot-login {

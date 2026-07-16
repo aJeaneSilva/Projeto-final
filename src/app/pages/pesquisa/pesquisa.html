@@ -1,5 +1,4 @@
 <app-header />
-
 <main class="container-pesquisa">
   <section class="card-busca">
     <h2>Monte seu Plano de Embarque</h2>
@@ -9,7 +8,11 @@
      
       <div class="campo-grupo">
         <label for="select-pais">Para qual país você está indo?</label>
-        <select id="select-pais" class="input-select" [(ngModel)]="paisSelecionado">
+        <select 
+          id="select-pais" 
+          class="input-select" 
+          [(ngModel)]="paisSelecionado" 
+          (change)="salvarPais()">
           <option value="" disabled selected>Selecione o destino...</option>
           <option value="estados-unidos">Estados Unidos</option>
           <option value="canada">Canadá</option>
@@ -28,15 +31,30 @@
         <label>Qual o seu foco principal?</label>
         <div class="botoes-radio">
           <label class="radio-label">
-            <input type="radio" name="foco" value="estudos" [(ngModel)]="focoSelecionado">
+            <input 
+              type="radio" 
+              name="foco" 
+              value="estudos" 
+              [checked]="focoSelecionado() === 'estudos'" 
+              (change)="alterarFoco('estudos')">
             <span>Estudos</span>
           </label>
           <label class="radio-label">
-            <input type="radio" name="foco" value="trabalho" [(ngModel)]="focoSelecionado">
+            <input 
+              type="radio" 
+              name="foco" 
+              value="trabalho" 
+              [checked]="focoSelecionado() === 'trabalho'" 
+              (change)="alterarFoco('trabalho')">
             <span>Trabalho</span>
           </label>
           <label class="radio-label">
-            <input type="radio" name="foco" value="moradia" [(ngModel)]="focoSelecionado">
+            <input 
+              type="radio" 
+              name="foco" 
+              value="moradia" 
+              [checked]="focoSelecionado() === 'moradia'" 
+              (change)="alterarFoco('moradia')">
             <span>Moradia</span>
           </label>
         </div>
@@ -49,7 +67,6 @@
   </section>
 
   <section class="painel-resultados" *ngIf="resultadoGuia()">
-    
     <div class="resultado-cabecalho">
       <img [src]="resultadoGuia()?.imagemBandeira" [alt]="resultadoGuia()?.nome" class="bandeira-pais">
       <h2>Guia de Preparação: {{ resultadoGuia()?.nome }}</h2>
@@ -60,7 +77,6 @@
         <div class="badge-categoria"><img src="/img/policial.png" alt="Policial"> Requisitos do Visto</div>
         <h3>Como funciona o processo:</h3>
         
-
         <p *ngIf="focoSelecionado() === 'estudos'">{{ resultadoGuia()?.vistoEstudos }}</p>
         <p *ngIf="focoSelecionado() === 'trabalho'">{{ resultadoGuia()?.vistoTrabalho }}</p>
         <p *ngIf="focoSelecionado() === 'moradia'">{{ resultadoGuia()?.vistoMoradia }}</p>
@@ -82,14 +98,16 @@
         </ul>
       </div>
 
-
       <div class="card-info">
         <div class="badge-categoria"><img src="/img/calendario.png" alt="Calendário"> Checklist de Embarque</div>
         <h3>Tarefas Importantes:</h3>
         <ul class="lista-checklist">
           <li *ngFor="let item of resultadoGuia()?.checklist">
             <label class="check-item">
-              <input type="checkbox">
+              <input 
+                type="checkbox" 
+                [checked]="isItemMarcado(item)"
+                (change)="alternarItemChecklist(item, $event)">
               <span>{{ item }}</span>
             </label>
           </li>

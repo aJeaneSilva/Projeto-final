@@ -7,17 +7,18 @@
   </div>
 
   <div class="container-filtro-unico">
-    <label for="filtro-pais">Filtrar por destino:</label>
-    <select 
-      id="filtro-pais" 
-      class="select-filtro" 
-      (change)="paisSelecionado.set($any($event.target).value)">
-      <option value=""> Mostrar todos os destinos</option>
-      <option *ngFor="let destino of paisesUnicos()" [value]="destino">
-        {{ destino }}
-      </option>
-    </select>
-  </div>
+  <label for="filtro-pais">Filtrar por destino:</label>
+  <select 
+    id="filtro-pais" 
+    class="select-filtro" 
+    [value]="paisSelecionado()" 
+    (change)="paisSelecionado.set($any($event.target).value)">
+    <option value="">Mostrar todos os destinos</option>
+    <option *ngFor="let destino of paisesUnicos()" [value]="destino">
+      {{ destino }}
+    </option>
+  </select>
+</div>
 
   <div class="grid-geral">
     <div *ngFor="let p of viajantesFiltrados()" class="card-viajante">
@@ -39,9 +40,9 @@
         <p class="bio-texto">"{{ p.bio }}"</p>
       </div>
 
-      <div class="card-rodape">
-        <button class="btn-perfil">Ver Perfil Completo</button>
-      </div>
+    <div class="card-rodape">
+      <button class="btn-perfil" (click)="avisarFuncaoIndisponivel()">Ver Perfil Completo</button>
+    </div>
 
     </div>
   </div>
