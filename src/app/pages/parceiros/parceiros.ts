@@ -112,5 +112,9 @@ export class Parceiros implements OnInit, OnDestroy {
       orcamento: '',
       descricaoPessoal: '' 
     });
+    
   }
+  avisarFotoFicticia(): void {
+  alert('Opção indisponível no momento. Tente novamente mais tarde!');
+}
 }

@@ -6,12 +6,12 @@
     <h2>Encontre seu Parceiro de Viagem</h2>
     <p class="subtitulo">Preencha suas preferências e encontre viajantes compatíveis com o seu destino e estilo de vida.</p>
 
-    <div class="foto-cadastro-container">
-        <div class="avatar-espelho">
-          <img src="/img/usuario.png" alt="Prévia da foto do usuário">
-        </div>
-        <span class="label-foto">Adicione foto</span>
-      </div>
+    <div class="foto-cadastro-container" (click)="avisarFotoFicticia()" style="cursor: pointer;">
+  <div class="avatar-espelho">
+    <img src="/img/usuario.png" alt="Prévia da foto do usuário">
+  </div>
+  <span class="label-foto">Adicione foto</span>
+</div>
 
     <form [formGroup]="formMatch" (ngSubmit)="buscarParceiros()">
 
