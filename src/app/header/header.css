@@ -15,11 +15,14 @@ header {
   padding: 10px 24px;
   width: 100%;
   box-sizing: border-box;
+}
+.logo-nome-link {
+  text-decoration: none;
 }  
 
 .logo-nome {
   display: flex; 
-  align-items: center; 
+  align-items: center;
   gap: 8px; 
   width: max-content;
   color: #9f6d3d;   

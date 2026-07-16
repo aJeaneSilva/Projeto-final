@@ -18,16 +18,32 @@ export class Header {
   }
 
   logout(): void {
-  if (confirm('Deseja realmente sair?')) {
-    localStorage.removeItem('usuarioLogado');
-    alert('Você saiu da conta.');
-    window.location.reload();
+    if (confirm('Deseja realmente sair?')) {
+      localStorage.removeItem('usuarioLogado');
+      
+      localStorage.removeItem('rascunho_suporte');
+      localStorage.removeItem('suporte_enviado');
+      localStorage.removeItem('suporte_advogado');
+      
+      localStorage.removeItem('rascunho_parceiros');
+      localStorage.removeItem('parceiros_busca_realizada');
+      localStorage.removeItem('parceiros_filtrados_salvos');
+      
+      localStorage.removeItem('pesquisa_pais_selecionado');
+      localStorage.removeItem('pesquisa_foco');
+      localStorage.removeItem('pesquisa_guia_salvo');
+      localStorage.removeItem('pesquisa_checklist_estados');
+      
+      localStorage.removeItem('mathes_pais_selecionado');
+
+      alert('Você saiu da conta.');
+      window.location.reload();
+    }
   }
-}
 
   avisarSemNotificacao(): void {
-  alert('Você não tem novas notificações no momento.');
-}
+    alert('Você não tem novas notificações no momento.');
+  }
 
   dispararClique(): void {
     this.menuAberto.update(valor => !valor);
